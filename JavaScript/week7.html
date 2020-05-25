@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<link rel="stylesheet" href="styles.css">
+<title>Assignment</title>
+<h1>Display List </h1>
+<nav class="navbar navbar-expand-sm bg-light">
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" href="#Arithmetic">Arithmetic operation </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#EmployeeDetails">Employee Details</a>
+    </li>
+  </ul>
+</nav>
+<br>
+</head>
+<body>
+<article id="Arithmetic">
+<form>
+<div>
+<h2>Arithmetic operation</h2>
+<label><b>Enter the first number</b> 
+<input type="number" id="number1" placeholder="Enter the first number"> </label>
+</div>
+<div>
+<label><b>Enter the second number</b>
+<input type="number" id="number2" placeholder="Enter the second number"></label>
+</div>
+<label class="radio-inline"><input type="radio" id="radiobutton" name="optradio" checked>Adddition</label>
+<label class="radio-inline"><input type="radio" id="radiobutton" name="optradio">Subtraction</label>
+<label class="radio-inline"><input type="radio" id="radiobutton" name="optradio">Multiplication</label>
+<label class="radio-inline"><input type="radio" id="radiobutton" name="optradio">Division</label>
+<br><button type="button" class="btn btn-success" onclick="result()">Submit</button></br>
+<h2>Result:</h2>
+<p id="Result"><p>
+</form>
+</article>
+<article id="EmployeeDetails">
+<form>
+<div>
+<h2>Employee Details</h2>
+<label><b>Enter the employee name</b> 
+<input type="text" id="Empname" placeholder="Enter the employee name"> </label>
+<br><button type="button" class="btn btn-success" onclick="employeeName()">Submit</button></br>
+<p id="empl"></p>
+<table>
+<thead>
+  <tr>
+  <th>Name</th><br>
+  <th>PhoneNumber</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+  <td id="empName"></td>
+  <td id="empPhonenum"></td>
+  </tr>
+  </tbody>
+</table>
+</div>
+</form>
+</article>
+</body>
+<script>
+function result(){
+        var num1=document.getElementById("number1").value;
+        var num2=document.getElementById("number2").value;
+        var x=document.getElementsByName("optradio");
+        if(x[0].checked){
+            y=parseInt(num1)+parseInt(num2);
+        }
+        else if(x[1].checked){
+            y=parseInt(num1)-parseInt(num2);
+        }
+        else if(x[2].checked){
+            y=parseInt(num1)*parseInt(num2);
+        }
+        else if(x[3].checked){
+            y=parseInt(num1)/parseInt(num2);
+        }
+        document.getElementById("Result").innerHTML=y;
+    }
+	function employeeName(){
+        var x=document.getElementById("Empname").value;
+
+        var emp={"Name":"Khalandar","PhoneNumber":"221040"};
+        if(x==emp.Name){
+            document.getElementById("empName").innerHTML=emp.Name;
+            document.getElementById("empPhonenum").innerHTML=emp.PhoneNumber;
+
+        }
+        else{
+            document.getElementById("empl").innerHTML="Check the name!"
+        }
+    }
+</script>
+</html>
